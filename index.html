@@ -37,6 +37,8 @@
                         <th>title</th>
                         <th>price</th>
                         <th>category</th>
+                        <th>description</th>
+                        <th>img</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -61,8 +63,16 @@
                 <div class="modal-body">
                     <!-- <form action=""> -->
                         <div class="my-3">
-                            <label for="">Enter your Name</label>
+                            <label for="">Enter your Title</label>
                             <input type="text" name="title" id="title" class="form-control">
+                        </div>
+                        <div class="my-3">
+                            <label for="">Enter your description</label>
+                            <input type="text" name="description" id="description"class="form-control">
+                        </div>
+                        <div class="my-3">
+                            <label for="">Enter your image</label>
+                            <input type="file" name="img" id="img" class="form-control">
                         </div>
                         <div class="my-3">
                             <label for="">Enter your price</label>
@@ -99,11 +109,21 @@
                             <input type="hidden" name="id" id="id" class="form-control">
                         </div>
                         <div class="my-3">
+                            <label for="">Enter your description</label>
+                            <input type="text" name="edit-description" id="edit-description" class="form-control">
+                            <input type="hidden" name="id" id="id" class="form-control">
+                        </div>
+                        <div class="my-3">
+                            <label for="">Enter your img</label>
+                            <input type="image" name="edit-img" id="img" class="form-control">
+                            <input type="hidden" name="id" id="id" class="form-control">
+                        </div>
+                        <div class="my-3">
                             <label for="">Enter your Age</label>
                             <input type="number" name="edit-price" id="edit-price" class="form-control">
                         </div>
                         <div class="my-3">
-                            <label for="">Enter your Country</label>
+                            <label for="">Enter your Category</label>
                             <input type="text" name="edit-category" id="edit-category" class="form-control">
                         </div>
                         <div class="my-3">

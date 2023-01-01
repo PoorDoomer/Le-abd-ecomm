@@ -10,12 +10,17 @@ save.addEventListener("click", async (e) => {
   let title = document.querySelector("#title").value;
   let price = document.querySelector("#price").value;
   let category = document.querySelector("#category").value;
-  save.innerText = "Saveing....";
+  let description = document.querySelector("#description").value;
+  let img = document.querySelector("#img").value;
+
+  save.innerText = "Saving....";
   save.setAttribute("disabled", true);
   let res = await database.from("products").insert({
     title: title,
     price: price,
     category: category,
+    description : description,
+    img : img
   });
   if (res) {
     alert("Product ajout Success");
@@ -24,6 +29,8 @@ save.addEventListener("click", async (e) => {
     title = "";
     price = "";
     category = "";
+    description = "";
+    img = "";
     getProduct();
     getTotalCount();
   } else {
@@ -46,6 +53,10 @@ const getProduct = async () => {
          <td>${res.data[i].title}</td>
          <td>${res.data[i].price}</td>
          <td>${res.data[i].category}</td>
+         
+         <td>${res.data[i].description}</td>
+         <td><img src="${res.data[i].img}" width="42" height="42"></td>
+         
          <td><button class="btn btn-primary" data-bs-toggle="modal"
          onclick='editStudent(${
            res.data[i].id
@@ -77,6 +88,8 @@ const editStudent = async (id) => {
     document.getElementById("edit-title").value = res.data[0].title;
     document.getElementById("edit-price").value = res.data[0].price;
     document.getElementById("edit-category").value = res.data[0].category;
+    document.getElementById("edit-description").value = res.data[0].price;
+    document.getElementById("edit-img").value = res.data[0].category;
   }
 };
 
@@ -87,6 +100,8 @@ update.addEventListener("click", async () => {
   let title = document.getElementById("edit-title").value;
   let price = document.getElementById("edit-price").value;
   let category = document.getElementById("edit-category").value;
+  let description = document.getElementById("edit-description").value;
+  let img = document.getElementById("edit-img").value;
   update.innerText = "Updateing....";
   update.setAttribute("disabled", true);
   const res = await database
@@ -95,6 +110,8 @@ update.addEventListener("click", async () => {
       title,
       price,
       category,
+      description,
+      img,
     })
     .eq("id", id);
 
@@ -105,6 +122,8 @@ update.addEventListener("click", async () => {
     title = "";
     price = "";
     category = "";
+    description = "";
+    img = "";
     getProduct();
     getTotalCount();
   } else {
